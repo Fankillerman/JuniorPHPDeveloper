@@ -1,0 +1,18 @@
+1a)
+SELECT ProductName,Price FROM products ORDER BY ProductName,Price ;
+
+1b)
+SELECT Orders.OrderID,Orders.OrderDate,Products.ProductName, OrderDetails.Quantity
+        FROM Orders, OrderDetails, Products WHERE Orders.OrderID =10406 AND
+        Orders.OrderID= OrderDetails.OrderID AND OrderDetails.ProductID=Products.ProductID ORDER BY Quantity;
+1c)
+SELECT Categories.CategoryID,Categories.CategoryName,COUNT(Products.CategoryID) AS Counted FROM Products
+LEFT JOIN Categories ON Categories.CategoryID = Products.CategoryID
+GROUP BY CategoryName Order BY counted;
+
+
+1d)
+SELECT Orders.OrderID,Orders.OrderDate, OrderDetails.Quantity, Products.Price,
+        OrderDetails.Quantity*Products.Price AS quotient
+        FROM Orders, OrderDetails, Products WHERE Orders.OrderDate >= date('1997-01-01') AND
+        Orders.OrderID= OrderDetails.OrderID AND OrderDetails.ProductID=Products.ProductID ORDER BY quotient DESC  LIMIT 10;

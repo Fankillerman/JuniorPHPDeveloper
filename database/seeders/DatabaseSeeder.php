@@ -13,5 +13,7 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run() {
+        $this->call(ProductTableSeeder::class);
+        $this->command->info('Table completed');
     }
 }
